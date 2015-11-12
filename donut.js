@@ -4,11 +4,13 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
     this.minCustomers = minCustomers;
     this.maxCustomers = maxCustomers;
     this.aveDonuts = aveDonuts;
+    // this.totalDonuts = null;
 }
 
 //customer random number generator
 DonutStatus.prototype.customerRandom = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return customer = Math.floor(Math.random() * (max - min + 1)) + min;
+
 }
 
 DonutStatus.prototype.DonutPerHour = function() {
@@ -23,19 +25,22 @@ var slu = new DonutStatus('South Lake Union', 9, 23, 6.33);
 var ww = new DonutStatus('Wedgewood', 2, 28, 1.25);
 var bd = new DonutStatus('Ballard', 8, 58, 3.75);
 
-// console.log(dt.DonutPerHour());
-// console.log(ch.DonutPerHour());
-// console.log(slu.DonutPerHour());
-// console.log(ww.DonutPerHour());
-// console.log(bd.DonutPerHour());
+console.log(dt.DonutPerHour() + " donuts/hour and " + customer + " customers");
+console.log(ch.DonutPerHour() + " donuts/hour and " + customer + " customers");
+console.log(slu.DonutPerHour() + " donuts/hour and " + customer + " customers");
+console.log(ww.DonutPerHour() + " donuts/hour and " + customer + " customers");
+console.log(bd.DonutPerHour() + " donuts/hour and " + customer + " customers");
 
 var locations = [dt, ch, slu, ww, bd];
 
 var createHours = locations.forEach(function(number) {
-    newHour = number.DonutPerHour();
-    // console.log(newHour + ' donuts/hour.');
-    return (newHour);
+      number = number.DonutPerHour();
+      return buyHour = [number, customer];
+    // console.log(newHour + " donuts/hour and " + customer + " customers");
+    // return Math.round(newHour);
 });
+
+console.log(buyHour)
 
 
 
