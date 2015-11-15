@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(0, 200, 200);
+  background-color: rgb(160, 190, 200);
   text-align: center;
 }
 
@@ -49,12 +49,19 @@ td, tr, th {
 #topImgRight {
   position: relative;
   z-index: -1;
-  left: 360px;
+  left: 600px;
   top: 70px;
 }
 #topImgLeft {
   position: relative;
   z-index: -1;
-  left: -360px;
+  left: -250px;
   top: 70px;
+}
+
+#topImgMid{
+  position: relative;
+  z-index: -1;
+  left: -155px;
+  top: 10px;
 }
