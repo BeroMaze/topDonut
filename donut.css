@@ -1,10 +1,12 @@
 body {
-  background-color: blue;
+  background-color: rgb(0, 200, 200);
   text-align: center;
 }
 
 #tableHead {
   font-size: 40px;
+  border-bottom: solid;
+  border-width: 10px;
 }
 
 #table {
@@ -15,8 +17,8 @@ table, td, tr, th {
   border: 1px  solid;
   border-collapse: collapse;
   font-size: 16px;
-  background-color: black;
-  color: white;
+  background-color: rgba(0, 200, 150, .2);
+  color: black;
   border-color: white;
 }
 td, tr, th {
@@ -24,16 +26,16 @@ td, tr, th {
 }
 #storeStyle {
   font-weight: bold;
-  color: green;
+  color: rgb(0, 250, 0);
 }
 
 #customerStyle {
-  color: red;
+  color: rgb(250, 200, 0);
   font-weight: bold;
 }
 
 #donutStyle {
-  color: green;
+  color: rgb(200, 250, 0);
   font-weight: bold;
 }
 
@@ -42,4 +44,17 @@ td, tr, th {
   color: white;
   font-style: italic;
   font-size: 20px;
+}
+
+#topImgRight {
+  position: relative;
+  z-index: -1;
+  left: 360px;
+  top: 70px;
+}
+#topImgLeft {
+  position: relative;
+  z-index: -1;
+  left: -360px;
+  top: 70px;
 }
