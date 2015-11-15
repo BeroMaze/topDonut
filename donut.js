@@ -24,7 +24,7 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
 
 ///////////////////////// function to put resaults into arrays ////////////////////////
             this.allDayDonuts = function() {
-                for ( var i = 0; i < 13; i++) { ///////////////// for each loop to fill array 12 hours
+                for ( var i = 0; i < 12; i++) { ///////////////// for each loop to fill array 12 hours
                     var byHour = this.DonutPerHour(); /////////// runs function to create each total hour
                     this.donutsArray.push(byHour); ////////////// pushes total donuts into donut array
                     this.totalMade += byHour; /////////////////// adds up the total donuts made for the day
@@ -32,7 +32,33 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
                     this.totalCustomers += this.customer; /////// adds up total customers
                 }
             }
+            /////////////// add info to /////////////////
+this.table = function() {
+var tr = document.createElement("tr");
+var td = document.createElement('td');
+td.innerHTML = this.store;
+tr.appendChild(td);
+td.setAttribute("id", "storeStyle");
+
+for (i = 0; i < this.donutsArray.length; i++) {
+ var donuts = document.createElement('td');
+  donuts.innerHTML = this.donutsArray[i];
+  tr.appendChild(donuts);
+}
+
+var customerTable = document.createElement('td');
+customerTable.innerHTML = this.totalCustomers;
+tr.appendChild(customerTable);
+customerTable.setAttribute("id", "customerStyle");
+
+var totalDonutsTable = document.createElement('td');
+totalDonutsTable.innerHTML = this.totalMade;
+tr.appendChild(totalDonutsTable);
+document.getElementById("table").appendChild(tr);
+totalDonutsTable.setAttribute("id", "donutStyle");
+}
 };
+
 
 ///////////////////////// all new locations //////////////////////////////
 var dt = new DonutStatus('Downtown', 8, 43, 4.50);
@@ -41,39 +67,23 @@ var slu = new DonutStatus('South Lake Union', 9, 23, 6.33);
 var ww = new DonutStatus('Wedgewood', 2, 28, 1.25);
 var bd = new DonutStatus('Ballard', 8, 58, 3.75);
 
-///////////////////////// Downtowns results ////////////////////////////
+
+
+
+// ///////////////////////// Downtowns results ////////////////////////////
 dt.allDayDonuts(); ////// run function for Downtown
-console.log(dt.donutsArray + " Downtown donuts/hour."); //////////////// console log donuts per hour
-console.log(dt.customerArray + " Downtown customer/hour."); //////////// console log customers per hour
-document.getElementById('dtTotals').innerHTML = dt.totalMade; ////////// input total donuts made to html
-document.getElementById('dtCustomers').innerHTML = dt.totalCustomers; // input total customers to html
-
-///////////////////////// Capitol Hills results ////////////////////////////
-ch.allDayDonuts(); ///// run function for Capitol Hill
-console.log(ch.donutsArray + " Capitol Hill donuts/hour."); //////////////// console log donuts per hour
-console.log(ch.customerArray + " Capitol Hill customer/hour."); //////////// console log customers per hour
-document.getElementById('chTotals').innerHTML = ch.totalMade; ////////////// input total donuts made to html
-document.getElementById('chCustomers').innerHTML = ch.totalCustomers; ////// input total customers to html
-
-//////////////////////// South Lake Unions results /////////////////////////
-slu.allDayDonuts();
-console.log(slu.donutsArray + " South Lake Union donuts/hour."); //////////////// console log donuts per hour
-console.log(slu.customerArray + " South Lake Union customer/hour."); //////////// console log customers per hour
-document.getElementById('sluTotals').innerHTML = slu.totalMade; ///////////////// input total donuts made to html
-document.getElementById('sluCustomers').innerHTML = slu.totalCustomers; ///////// input total customers to html
-
-////////////////////// console logs Wedgewoods results //////////////////
-ww.allDayDonuts(); ///// Wedgewood results
-console.log(ww.donutsArray + " Wedgewood donuts/hour."); //////////////// console log donuts per hour
-console.log(ww.customerArray + " Wedgewood customer/hour."); //////////// console log customers per hour
-document.getElementById('wwTotals').innerHTML = ww.totalMade; /////////// input total donuts made to html
-document.getElementById('wwCustomers').innerHTML = ww.totalCustomers; /// input total customers to html
-
-////////////////////// console logs Ballards results /////////////////////
-bd.allDayDonuts(); ///////// Ballard Results
-console.log(bd.donutsArray + " Ballard donuts/hour.");  ////////////////// console log donuts per hour
-console.log(bd.customerArray + " Ballard customer/hour.");  ////////////// console log customers per hour
-document.getElementById('bdTotals').innerHTML = bd.totalMade;  /////////// input total donuts made to html
-document.getElementById('bdCustomers').innerHTML = bd.totalCustomers; //// input total customers to html
+dt.table(); ///// run push into table
+// ///////////////////////// Capital Hill results ////////////////////////////
+ch.allDayDonuts(); ////// run function for Downtown
+ch.table(); ///// run push into table
+// ///////////////////////// South Lake Union results ////////////////////////////
+slu.allDayDonuts(); ////// run function for Downtown
+slu.table(); ///// run push into table
+// ///////////////////////// Wedgewood results ////////////////////////////
+ww.allDayDonuts(); ////// run function for Downtown
+ww.table(); ///// run push into table
+// ///////////////////////// Ballard results ////////////////////////////
+bd.allDayDonuts(); ////// run function for Downtown
+bd.table(); ///// run push into table
 
 
