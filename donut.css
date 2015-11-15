@@ -1,0 +1,45 @@
+body {
+  background-color: blue;
+  text-align: center;
+}
+
+#tableHead {
+  font-size: 40px;
+}
+
+#table {
+  border: 1px solid;
+  text-align: center;
+}
+table, td, tr, th {
+  border: 1px  solid;
+  border-collapse: collapse;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+td, tr, th {
+  padding: 7px;
+}
+#storeStyle {
+  font-weight: bold;
+  color: green;
+}
+
+#customerStyle {
+  color: red;
+  font-weight: bold;
+}
+
+#donutStyle {
+  color: green;
+  font-weight: bold;
+}
+
+#tableDescription {
+  padding: 4px;
+  color: white;
+  font-style: italic;
+  font-size: 20px;
+}
