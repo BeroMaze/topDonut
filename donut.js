@@ -32,31 +32,31 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
                     this.totalCustomers += this.customer; /////// adds up total customers
                 }
             }
-            /////////////// add info to /////////////////
-this.table = function() {
-var tr = document.createElement("tr");
-var td = document.createElement('td');
-td.innerHTML = this.store;
-tr.appendChild(td);
-td.setAttribute("id", "storeStyle");
+  /////////////// add info to /////////////////
+  DonutStatus.prototype.table = function() {
+              var tr = document.createElement("tr");
+              var td = document.createElement('td');
+              td.innerHTML = this.store;
+              tr.appendChild(td);
+              td.setAttribute("id", "storeStyle");
 
-for (i = 0; i < this.donutsArray.length; i++) {
- var donuts = document.createElement('td');
-  donuts.innerHTML = this.donutsArray[i];
-  tr.appendChild(donuts);
-}
+                for (i = 0; i < this.donutsArray.length; i++) {
+                    var donuts = document.createElement('td');
+                    donuts.innerHTML = this.donutsArray[i];
+                    tr.appendChild(donuts);
+                }
 
-var customerTable = document.createElement('td');
-customerTable.innerHTML = this.totalCustomers;
-tr.appendChild(customerTable);
-customerTable.setAttribute("id", "customerStyle");
+            var customerTable = document.createElement('td');
+              customerTable.innerHTML = this.totalCustomers;
+              tr.appendChild(customerTable);
+              customerTable.setAttribute("id", "customerStyle");
 
-var totalDonutsTable = document.createElement('td');
-totalDonutsTable.innerHTML = this.totalMade;
-tr.appendChild(totalDonutsTable);
-document.getElementById("table").appendChild(tr);
-totalDonutsTable.setAttribute("id", "donutStyle");
-}
+            var totalDonutsTable = document.createElement('td');
+              totalDonutsTable.innerHTML = this.totalMade;
+              tr.appendChild(totalDonutsTable);
+              document.getElementById("table").appendChild(tr);
+              totalDonutsTable.setAttribute("id", "donutStyle");
+  }
 };
 
 
@@ -73,15 +73,19 @@ var bd = new DonutStatus('Ballard', 8, 58, 3.75);
 // ///////////////////////// Downtowns results ////////////////////////////
 dt.allDayDonuts(); ////// run function for Downtown
 dt.table(); ///// run push into table
+
 // ///////////////////////// Capital Hill results ////////////////////////////
 ch.allDayDonuts(); ////// run function for Downtown
 ch.table(); ///// run push into table
+
 // ///////////////////////// South Lake Union results ////////////////////////////
 slu.allDayDonuts(); ////// run function for Downtown
 slu.table(); ///// run push into table
+
 // ///////////////////////// Wedgewood results ////////////////////////////
 ww.allDayDonuts(); ////// run function for Downtown
 ww.table(); ///// run push into table
+
 // ///////////////////////// Ballard results ////////////////////////////
 bd.allDayDonuts(); ////// run function for Downtown
 bd.table(); ///// run push into table
