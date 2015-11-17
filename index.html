@@ -3,6 +3,10 @@
 <head>
   <title>Top Donuts</title>
   <link rel="stylesheet" type="text/css" href="donut.css">
+  <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <img src="https://pbs.twimg.com/profile_images/437618776452759552/MnADNZ8h.jpeg" id = 'topImgRight' width="150px" height = "150px">
@@ -31,11 +35,19 @@
 <p1 id = 'tableDescription'>This table shows the amount of donuts that will be
 bought per hour.</p1> <br />
 
-<p2> Please Enter a New Stores Info Here:</p2> <br />
+<p2 class = 'infoEntry'> Please Enter A New Stores Info Here:</p2> <br />
 <input type="text" value="New Store Name" id="newStore">
 <input type="text" value="Store Min Customers" id="newMin">
 <input type="text" value="Store Max Customers" id="newMax">
-<input type="text" value="Store Average Donuts" id="newAve"> <br />
+<input type="text" value="Store Average Donuts" id="newAve">
+<button id = 'newSubmit' onclick="newLocation()">Submit New Store</button> <br />
+<br/>
+<!-- update an existing location -->
+<p2 class = 'infoEntry'> Please Enter Updated info:</p2> <br />
+<input type="text" value="Store Name" id="newStore">
+<input type="text" value="Store Min Customers" id="newMin">
+<input type="text" value="Store Max Customers" id="newMax">
+<input type="text" value="Store Average Donuts" id="newAve">
 <button id = 'newSubmit' onclick="newLocation()">Submit New Store</button>
 <script src ="donut.js"></script>
 </body>
