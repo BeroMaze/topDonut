@@ -59,7 +59,7 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
   }
 };
 
-var newLocation = function () {
+document.getElementById('newSubmit').addEventListener('click', function () {
           var newStore = document.getElementById('newStore').value;
           var newMin = document.getElementById('newMin').value;
           var newMax = document.getElementById('newMax').value;
@@ -67,9 +67,20 @@ var newLocation = function () {
           var newresults = new DonutStatus(newStore, parseInt(newMin), parseInt(newMax), parseInt(newAve));
           newresults.allDayDonuts();
           newresults.table();
+          donutShops.push(newresults);
           console.log(newresults.totalCustomers);
           console.log(newresults.customerArray);
-}
+          console.log(donutShops);
+});
+
+document.getElementById('updateSubmit').addEventListener('click', function () {
+          var updateStore = document.getElementById('updateStore').value;
+          var updateMin = document.getElementById('updateMin').value;
+          var updateMax = document.getElementById('updateMax').value;
+          var updateAve = document.getElementById('updateAve').value;
+          if (updateStore.toUpperCase == "DOWNTOWN") {
+
+          }})
 
 ///////////////////////// all new locations //////////////////////////////
 var dt = new DonutStatus('Downtown', 8, 43, 4.50);
@@ -78,14 +89,33 @@ var slu = new DonutStatus('South Lake Union', 9, 23, 6.33);
 var ww = new DonutStatus('Wedgewood', 2, 28, 1.25);
 var bd = new DonutStatus('Ballard', 8, 58, 3.75);
 
+var donutShops = [dt, ch, slu, ww, bd]
+console.log(dt);
 
+function update () {
+  var loc = document.getElementById('updateStore');
+  for(var i = 0; i < donutShops.length; i++){
+      var opt = donutShops[i].store;
+      var el = document.createElement('option');
+      el.textContent = opt;
+      el.value = opt;
+      loc.appendChild(el);
+  }};
+update();
 
+                                        //     donutShops.forEach(function(i) {
+                                        //     var loc = document.getElementById('updateStore');
+                                        //     var opt = document.createElement('option');
+                                        //     opt.textContent = donutShops[i];
+                                        //     opt.value = donutShops[i];
+                                        //     loc.appendChild(opt);
+                                        // });
 
-// ///////////////////////// Downtowns results ////////////////////////////
+// ///////////////////////// Downtowns resaultslts ////////////////////////////
 dt.allDayDonuts(); ////// run function for Downtown
 dt.table(); ///// run push into table
-console.log(dt.customer);
-console.log(dt.customerArray);
+// console.log(dt.customer);
+// console.log(dt.customerArray);
 // ///////////////////////// Capital Hill results ////////////////////////////
 ch.allDayDonuts(); ////// run function for Downtown
 ch.table(); ///// run push into table
@@ -101,5 +131,6 @@ ww.table(); ///// run push into table
 // ///////////////////////// Ballard results ////////////////////////////
 bd.allDayDonuts(); ////// run function for Downtown
 bd.table(); ///// run push into table
+
 
 
