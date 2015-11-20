@@ -58,7 +58,7 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
               totalDonutsTable.setAttribute("id", "donutStyle");
   }
 };
-
+//////////// add a new store to the table ////////////////////////
 document.getElementById('newSubmit').addEventListener('click', function () {
           var newStore = document.getElementById('newStore').value;
           var newMin = document.getElementById('newMin').value;
@@ -68,19 +68,32 @@ document.getElementById('newSubmit').addEventListener('click', function () {
           newresults.allDayDonuts();
           newresults.table();
           donutShops.push(newresults);
+          var loc = document.getElementById('updateStore');
+          var opt = newresults.store;
+          var el = document.createElement('option');
+          el.textContent = opt;
+          el.value = opt;
+          loc.appendChild(el);
+
+          console.log(donutShops);
           console.log(newresults.totalCustomers);
           console.log(newresults.customerArray);
           console.log(donutShops);
 });
 
-document.getElementById('updateSubmit').addEventListener('click', function () {
+/////////////// update a location with new numbers //////////////////////////
+document.getElementById('updateSubmit').addEventListener('click', function (i) {
+          alert('hello');
           var updateStore = document.getElementById('updateStore').value;
-          var updateMin = document.getElementById('updateMin').value;
-          var updateMax = document.getElementById('updateMax').value;
-          var updateAve = document.getElementById('updateAve').value;
-          if (updateStore.toUpperCase == "DOWNTOWN") {
-
-          }})
+          for (i = 0; i < donutShops.length; i++) {
+              if(updateStore === donutShops[i].store) {
+                console.log(i);
+                donutShops[i].minCustomers = parseInt(document.getElementById('updateMin').value);
+                donutShops[i].maxCustomers = parseInt(document.getElementById('updateMax').value);
+                donutShops[i].aveDonuts = parseInt(document.getElementById('updateAve').value);
+                  console.log(donutShops[i]);
+              }};
+          });
 
 ///////////////////////// all new locations //////////////////////////////
 var dt = new DonutStatus('Downtown', 8, 43, 4.50);
@@ -90,8 +103,10 @@ var ww = new DonutStatus('Wedgewood', 2, 28, 1.25);
 var bd = new DonutStatus('Ballard', 8, 58, 3.75);
 
 var donutShops = [dt, ch, slu, ww, bd]
-console.log(dt);
+// console.log(dt);
 
+
+////////////////////// add each object to the dropdown box ///////////////////////
 function update () {
   var loc = document.getElementById('updateStore');
   for(var i = 0; i < donutShops.length; i++){
@@ -102,14 +117,6 @@ function update () {
       loc.appendChild(el);
   }};
 update();
-
-                                        //     donutShops.forEach(function(i) {
-                                        //     var loc = document.getElementById('updateStore');
-                                        //     var opt = document.createElement('option');
-                                        //     opt.textContent = donutShops[i];
-                                        //     opt.value = donutShops[i];
-                                        //     loc.appendChild(opt);
-                                        // });
 
 // ///////////////////////// Downtowns resaultslts ////////////////////////////
 dt.allDayDonuts(); ////// run function for Downtown
