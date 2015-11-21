@@ -131,6 +131,8 @@ document.getElementById('updateSubmit').addEventListener('click', function (i) {
                   // these both are needed so that the array is cleared other wise your array will be the old and new numbers
                   donutShops[i].donutsArray.length = 0; // clears out the array for the donuts per hour
                   donutShops[i].customerArray.length = 0; // clears out the array for customers per hour
+                  donutShops[i].totalCustomers = 0;
+                  donutShops[i].totalMade = 0;
                   // console.log(donutShops[i].donutsArray);
                   // console.log(donutShops[i].customerArray);
                   donutShops[i].allDayDonuts(); // runs the number generator and donuts per hour for the right object
