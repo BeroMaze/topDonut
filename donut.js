@@ -58,6 +58,41 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
               totalDonutsTable.setAttribute("id", "donutStyle");
   }
 };
+////////// updates location with new info ///////////////////////////
+DonutStatus.prototype.tableUpdate = function(i) {
+  console.log(i);
+              var spot = i + 2 // adds 2 to i to set to offset to the right area of the table.
+              console.log(i);
+              var tr = document.createElement("tr");
+              var td = document.createElement('td');
+              table = document.getElementById("table")
+              td.innerHTML = this.store;
+              tr.appendChild(td);
+              table.insertBefore(tr, table.childNodes[spot]); // insets new info to the right row
+              td.setAttribute("id", "storeStyle");
+
+                for (i = 0; i < this.donutsArray.length; i++) {
+                    var donuts = document.createElement('td');
+                    donuts.innerHTML = this.donutsArray[i];
+                    tr.appendChild(donuts);
+                    table.insertBefore(tr, table.childNodes[spot]); // insets new info to the right row
+
+                }
+
+            var customerTable = document.createElement('td');
+              customerTable.innerHTML = this.totalCustomers;
+              tr.appendChild(customerTable);
+              table.insertBefore(tr, table.childNodes[spot]); // insets new info to the right row
+              customerTable.setAttribute("id", "customerStyle");
+
+            var totalDonutsTable = document.createElement('td');
+              totalDonutsTable.innerHTML = this.totalMade;
+              tr.appendChild(totalDonutsTable);
+              document.getElementById("table").appendChild(tr);
+              table.insertBefore(tr, table.childNodes[spot]); // insets new info to the right row
+              totalDonutsTable.setAttribute("id", "donutStyle");
+  }
+
 //////////// add a new store to the table ////////////////////////
 document.getElementById('newSubmit').addEventListener('click', function () {
           var newStore = document.getElementById('newStore').value;
@@ -74,7 +109,6 @@ document.getElementById('newSubmit').addEventListener('click', function () {
           el.textContent = opt;
           el.value = opt;
           loc.appendChild(el);
-
           console.log(donutShops);
           console.log(newresults.totalCustomers);
           console.log(newresults.customerArray);
@@ -91,7 +125,17 @@ document.getElementById('updateSubmit').addEventListener('click', function (i) {
                 donutShops[i].minCustomers = parseInt(document.getElementById('updateMin').value);
                 donutShops[i].maxCustomers = parseInt(document.getElementById('updateMax').value);
                 donutShops[i].aveDonuts = parseInt(document.getElementById('updateAve').value);
-                  console.log(donutShops[i]);
+                document.getElementById("table").deleteRow(i + 1);
+                console.log(i);
+                  // console.log(donutShops[i].donutsArray);
+                  // console.log(donutShops[i].customerArray);
+                  // these both are needed so that the array is cleared other wise your array will be the old and new numbers
+                  donutShops[i].donutsArray.length = 0; // clears out the array for the donuts per hour
+                  donutShops[i].customerArray.length = 0; // clears out the array for customers per hour
+                  // console.log(donutShops[i].donutsArray);
+                  // console.log(donutShops[i].customerArray);
+                  donutShops[i].allDayDonuts(); // runs the number generator and donuts per hour for the right object
+                  donutShops[i].tableUpdate(i); // puts the new information into the table at the botton
               }};
           });
 
