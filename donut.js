@@ -117,16 +117,15 @@ document.getElementById('newSubmit').addEventListener('click', function () {
 
 /////////////// update a location with new numbers //////////////////////////
 document.getElementById('updateSubmit').addEventListener('click', function (i) {
-          alert('hello');
           var updateStore = document.getElementById('updateStore').value;
           for (i = 0; i < donutShops.length; i++) {
               if(updateStore === donutShops[i].store) {
-                console.log(i);
+                // console.log(i);
                 donutShops[i].minCustomers = parseInt(document.getElementById('updateMin').value);
                 donutShops[i].maxCustomers = parseInt(document.getElementById('updateMax').value);
                 donutShops[i].aveDonuts = parseInt(document.getElementById('updateAve').value);
                 document.getElementById("table").deleteRow(i + 1);
-                console.log(i);
+                // console.log(i);
                   // console.log(donutShops[i].donutsArray);
                   // console.log(donutShops[i].customerArray);
                   // these both are needed so that the array is cleared other wise your array will be the old and new numbers
