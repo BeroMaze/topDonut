@@ -58,8 +58,43 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
               totalDonutsTable.setAttribute("id", "donutStyle");
   }
 };
+////////// updates location with new info ///////////////////////////
+DonutStatus.prototype.tableUpdate = function(i) {
+  console.log(i);
+              var spot = i + 2 // adds 2 to i to set to offset to the right area of the table.
+              console.log(i);
+              var tr = document.createElement("tr");
+              var td = document.createElement('td');
+              table = document.getElementById("table")
+              td.innerHTML = this.store;
+              tr.appendChild(td);
+              table.insertBefore(tr, table.childNodes[spot]); // insets new info to the right row
+              td.setAttribute("id", "storeStyle");
 
-var newLocation = function () {
+                for (i = 0; i < this.donutsArray.length; i++) {
+                    var donuts = document.createElement('td');
+                    donuts.innerHTML = this.donutsArray[i];
+                    tr.appendChild(donuts);
+                    table.insertBefore(tr, table.childNodes[spot]); // insets new info to the right row
+
+                }
+
+            var customerTable = document.createElement('td');
+              customerTable.innerHTML = this.totalCustomers;
+              tr.appendChild(customerTable);
+              table.insertBefore(tr, table.childNodes[spot]); // insets new info to the right row
+              customerTable.setAttribute("id", "customerStyle");
+
+            var totalDonutsTable = document.createElement('td');
+              totalDonutsTable.innerHTML = this.totalMade;
+              tr.appendChild(totalDonutsTable);
+              document.getElementById("table").appendChild(tr);
+              table.insertBefore(tr, table.childNodes[spot]); // insets new info to the right row
+              totalDonutsTable.setAttribute("id", "donutStyle");
+  }
+
+//////////// add a new store to the table ////////////////////////
+document.getElementById('newSubmit').addEventListener('click', function () {
           var newStore = document.getElementById('newStore').value;
           var newMin = document.getElementById('newMin').value;
           var newMax = document.getElementById('newMax').value;
@@ -67,9 +102,43 @@ var newLocation = function () {
           var newresults = new DonutStatus(newStore, parseInt(newMin), parseInt(newMax), parseInt(newAve));
           newresults.allDayDonuts();
           newresults.table();
+          donutShops.push(newresults);
+          var loc = document.getElementById('updateStore');
+          var opt = newresults.store;
+          var el = document.createElement('option');
+          el.textContent = opt;
+          el.value = opt;
+          loc.appendChild(el);
+          console.log(donutShops);
           console.log(newresults.totalCustomers);
           console.log(newresults.customerArray);
-}
+          console.log(donutShops);
+});
+
+/////////////// update a location with new numbers //////////////////////////
+document.getElementById('updateSubmit').addEventListener('click', function (i) {
+          var updateStore = document.getElementById('updateStore').value;
+          for (i = 0; i < donutShops.length; i++) {
+              if(updateStore === donutShops[i].store) {
+                // console.log(i);
+                donutShops[i].minCustomers = parseInt(document.getElementById('updateMin').value);
+                donutShops[i].maxCustomers = parseInt(document.getElementById('updateMax').value);
+                donutShops[i].aveDonuts = parseInt(document.getElementById('updateAve').value);
+                document.getElementById("table").deleteRow(i + 1);
+                // console.log(i);
+                  // console.log(donutShops[i].donutsArray);
+                  // console.log(donutShops[i].customerArray);
+                  // these both are needed so that the array is cleared other wise your array will be the old and new numbers
+                  donutShops[i].donutsArray.length = 0; // clears out the array for the donuts per hour
+                  donutShops[i].customerArray.length = 0; // clears out the array for customers per hour
+                  donutShops[i].totalCustomers = 0;
+                  donutShops[i].totalMade = 0;
+                  // console.log(donutShops[i].donutsArray);
+                  // console.log(donutShops[i].customerArray);
+                  donutShops[i].allDayDonuts(); // runs the number generator and donuts per hour for the right object
+                  donutShops[i].tableUpdate(i); // puts the new information into the table at the botton
+              }};
+          });
 
 ///////////////////////// all new locations //////////////////////////////
 var dt = new DonutStatus('Downtown', 8, 43, 4.50);
@@ -78,14 +147,27 @@ var slu = new DonutStatus('South Lake Union', 9, 23, 6.33);
 var ww = new DonutStatus('Wedgewood', 2, 28, 1.25);
 var bd = new DonutStatus('Ballard', 8, 58, 3.75);
 
+var donutShops = [dt, ch, slu, ww, bd]
+// console.log(dt);
 
 
+////////////////////// add each object to the dropdown box ///////////////////////
+function update () {
+  var loc = document.getElementById('updateStore');
+  for(var i = 0; i < donutShops.length; i++){
+      var opt = donutShops[i].store;
+      var el = document.createElement('option');
+      el.textContent = opt;
+      el.value = opt;
+      loc.appendChild(el);
+  }};
+update();
 
-// ///////////////////////// Downtowns results ////////////////////////////
+// ///////////////////////// Downtowns resaultslts ////////////////////////////
 dt.allDayDonuts(); ////// run function for Downtown
 dt.table(); ///// run push into table
-console.log(dt.customer);
-console.log(dt.customerArray);
+// console.log(dt.customer);
+// console.log(dt.customerArray);
 // ///////////////////////// Capital Hill results ////////////////////////////
 ch.allDayDonuts(); ////// run function for Downtown
 ch.table(); ///// run push into table
@@ -101,5 +183,6 @@ ww.table(); ///// run push into table
 // ///////////////////////// Ballard results ////////////////////////////
 bd.allDayDonuts(); ////// run function for Downtown
 bd.table(); ///// run push into table
+
 
 
