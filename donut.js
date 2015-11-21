@@ -58,7 +58,7 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
               totalDonutsTable.setAttribute("id", "donutStyle");
   }
 };
-
+//////// add new location to the table ///////////////////////////////
 var newLocation = function () {
           var newStore = document.getElementById('newStore').value;
           var newMin = document.getElementById('newMin').value;
@@ -67,8 +67,8 @@ var newLocation = function () {
           var newresults = new DonutStatus(newStore, parseInt(newMin), parseInt(newMax), parseInt(newAve));
           newresults.allDayDonuts();
           newresults.table();
-          console.log(newresults.totalCustomers);
-          console.log(newresults.customerArray);
+          // console.log(newresults.totalCustomers);
+          // console.log(newresults.customerArray);
 }
 
 ///////////////////////// all new locations //////////////////////////////
@@ -84,8 +84,8 @@ var bd = new DonutStatus('Ballard', 8, 58, 3.75);
 // ///////////////////////// Downtowns results ////////////////////////////
 dt.allDayDonuts(); ////// run function for Downtown
 dt.table(); ///// run push into table
-console.log(dt.customer);
-console.log(dt.customerArray);
+// console.log(dt.customer);
+// console.log(dt.customerArray);
 // ///////////////////////// Capital Hill results ////////////////////////////
 ch.allDayDonuts(); ////// run function for Downtown
 ch.table(); ///// run push into table
