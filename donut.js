@@ -8,7 +8,7 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
           this.customerArray = []; //////////////// array to hold total customers per hour
           this.byHour = 0; //////////////////////// var used for total donuts for each hour
           this.totalMade = 0; ///////////////////// the total donuts made for the day
-          this.customer = 0; ////////////////////// var used for total customers for each hour
+          this.customer = Number(0); ////////////////////// var used for total customers for each hour
           this.totalCustomers = 0; //////////////// sum of total customers
 
 /////////////////////////// customer random number generator ///////////////////////////
@@ -59,6 +59,17 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
   }
 };
 
+var newLocation = function () {
+          var newStore = document.getElementById('newStore').value;
+          var newMin = document.getElementById('newMin').value;
+          var newMax = document.getElementById('newMax').value;
+          var newAve = document.getElementById('newAve').value;
+          var newresults = new DonutStatus(newStore, parseInt(newMin), parseInt(newMax), parseInt(newAve));
+          newresults.allDayDonuts();
+          newresults.table();
+          console.log(newresults.totalCustomers);
+          console.log(newresults.customerArray);
+}
 
 ///////////////////////// all new locations //////////////////////////////
 var dt = new DonutStatus('Downtown', 8, 43, 4.50);
@@ -73,7 +84,8 @@ var bd = new DonutStatus('Ballard', 8, 58, 3.75);
 // ///////////////////////// Downtowns results ////////////////////////////
 dt.allDayDonuts(); ////// run function for Downtown
 dt.table(); ///// run push into table
-
+console.log(dt.customer);
+console.log(dt.customerArray);
 // ///////////////////////// Capital Hill results ////////////////////////////
 ch.allDayDonuts(); ////// run function for Downtown
 ch.table(); ///// run push into table
