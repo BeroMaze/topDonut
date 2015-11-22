@@ -31,8 +31,8 @@ header {
 
 #headerLeft {
     display: -webkit-flex;
-    -webkit-flex-direction: row;
-    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: flex-end;
     /*border: solid;*/
     -webkit-align-items: flex-end;
 }
@@ -147,6 +147,13 @@ td, tr, th {
 
 .infoEntry {
   font-family: 'Lobster', cursive;
+}
+
+#info {
+  width: 200px;
+  text-align: left;
+  position: relative;
+  margin-bottom: 70px;
 }
 
 
