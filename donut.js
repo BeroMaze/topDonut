@@ -259,4 +259,11 @@ cheet('b a l l a r d', function () {
   alert('Address: 1416 NW 46th St #102                           Phone: (206) 454-3767');
 });
 
+// cheet('b l a c k o u t', function(){
+//   document.getElementById('blackout').display = 'visible';
+// })
+// cheet('n o', function(){
+//   document.getElementById('blackout').display = 'hidden';
+// })
+
 
