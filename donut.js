@@ -100,6 +100,10 @@ document.getElementById('newSubmit').addEventListener('click', function () {
           var newMax = document.getElementById('newMax').value;
           var newAve = document.getElementById('newAve').value;
           var newresults = new DonutStatus(newStore, parseInt(newMin), parseInt(newMax), parseInt(newAve));
+          if ((newStore === '') || (newMin === '') || (newMax === '') || (newAve === '')){
+            alert('Please fill in all information needed.')
+            return;
+          }
           newresults.allDayDonuts();
           newresults.table();
           donutShops.push(newresults);
@@ -118,27 +122,36 @@ document.getElementById('newSubmit').addEventListener('click', function () {
 /////////////// update a location with new numbers //////////////////////////
 document.getElementById('updateSubmit').addEventListener('click', function (i) {
           var updateStore = document.getElementById('updateStore').value;
-          for (i = 0; i < donutShops.length; i++) {
-              if(updateStore === donutShops[i].store) {
-                // console.log(i);
-                donutShops[i].minCustomers = parseInt(document.getElementById('updateMin').value);
-                donutShops[i].maxCustomers = parseInt(document.getElementById('updateMax').value);
-                donutShops[i].aveDonuts = parseInt(document.getElementById('updateAve').value);
-                document.getElementById("table").deleteRow(i + 1);
-                // console.log(i);
-                  // console.log(donutShops[i].donutsArray);
-                  // console.log(donutShops[i].customerArray);
-                  // these both are needed so that the array is cleared other wise your array will be the old and new numbers
-                  donutShops[i].donutsArray.length = 0; // clears out the array for the donuts per hour
-                  donutShops[i].customerArray.length = 0; // clears out the array for customers per hour
-                  donutShops[i].totalCustomers = 0;
-                  donutShops[i].totalMade = 0;
-                  // console.log(donutShops[i].donutsArray);
-                  // console.log(donutShops[i].customerArray);
-                  donutShops[i].allDayDonuts(); // runs the number generator and donuts per hour for the right object
-                  donutShops[i].tableUpdate(i); // puts the new information into the table at the botton
-              }};
+          var updateMin = parseInt(document.getElementById('updateMin').value);
+          var updateMax = parseInt(document.getElementById('updateMax').value);
+          var updateAve = parseInt(document.getElementById('updateAve').value);
+          if ((isNaN(updateMin)) || (isNaN(updateMax)) || (isNaN(updateAve))){
+                      alert('Please fill in all information needed.');
+                      return;
+          }
+          else {
+              for (i = 0; i < donutShops.length; i++) {
+                  if(updateStore === donutShops[i].store) {
+                      donutShops[i].minCustomers = parseInt(document.getElementById('updateMin').value);
+                      donutShops[i].maxCustomers = parseInt(document.getElementById('updateMax').value);
+                      donutShops[i].aveDonuts = parseInt(document.getElementById('updateAve').value);
+                      document.getElementById("table").deleteRow(i + 1); // deletes the row of the old information for the store being changed
+                      // console.log(i);
+                      // console.log(donutShops[i].donutsArray);
+                      // console.log(donutShops[i].customerArray);
+                      // these both are needed so that the array is cleared other wise your array will be the old and new numbers
+                      donutShops[i].donutsArray.length = 0; // clears out the array for the donuts per hour
+                      donutShops[i].customerArray.length = 0; // clears out the array for customers per hour
+                      donutShops[i].totalCustomers = 0; // puts total back to 0
+                      donutShops[i].totalMade = 0; // puts total back to 0
+                      // console.log(donutShops[i].donutsArray);
+                      // console.log(donutShops[i].customerArray);
+                      donutShops[i].allDayDonuts(); // runs the number generator and donuts per hour for the right object
+                      donutShops[i].tableUpdate(i); // puts the new information into the table at the botton
+                  }};
+              }
           });
+
 
 ///////////////////////// all new locations //////////////////////////////
 var dt = new DonutStatus('Downtown', 8, 43, 4.50);
@@ -184,5 +197,65 @@ ww.table(); ///// run push into table
 bd.allDayDonuts(); ////// run function for Downtown
 bd.table(); ///// run push into table
 
+// veiw downtown
+var dtInfo = document.getElementById("table").rows[1].cells[0].onmouseover = function() {
+  document.getElementById('info').innerHTML = 'Location: ' + dt.store + "   Minimum Customers: " + dt.minCustomers + '  Maximum Customers: ' + dt.maxCustomers + '  Avarage Donuts/hour: ' + dt.aveDonuts;
+}
+// hide downtown
+var dtInfo = document.getElementById("table").rows[1].cells[0].onmouseout = function() {
+  document.getElementById('info').innerHTML = '';
+}
+// view Cap hill
+var chInfo = document.getElementById("table").rows[2].cells[0].onmouseover = function() {
+  document.getElementById('info').innerHTML ='Location: ' + ch.store + "   Minimum Customers: " + ch.minCustomers + '  Maximum Customers: ' + ch.maxCustomers + '  Avarage Donuts/hour: ' + ch.aveDonuts;
+}
+// hide cap hill
+var chInfo = document.getElementById("table").rows[2].cells[0].onmouseout = function() {
+  document.getElementById('info').innerHTML ='';
+}
+// view South lake U
+var sluInfo = document.getElementById("table").rows[3].cells[0].onmouseover = function() {
+  document.getElementById('info').innerHTML ='Location: ' + slu.store + "   Minimum Customers: " + slu.minCustomers + '  Maximum Customers: ' + slu.maxCustomers + '  Avarage Donuts/hour: ' + slu.aveDonuts;
+}
+// hide south lake U
+var sluInfo = document.getElementById("table").rows[3].cells[0].onmouseout = function() {
+  document.getElementById('info').innerHTML ='';
+}
+// view Wedgewood
+var wwInfo = document.getElementById("table").rows[4].cells[0].onmouseover = function() {
+  document.getElementById('info').innerHTML ='Location: ' + ww.store + "   Minimum Customers: " + ww.minCustomers + '  Maximum Customers: ' + ww.maxCustomers + '  Avarage Donuts/hour: ' + ww.aveDonuts;
+}
+// hide Wedgewood
+var wwInfo = document.getElementById("table").rows[4].cells[0].onmouseout = function() {
+  document.getElementById('info').innerHTML ='';
+}
+// view Ballard
+var bdInfo = document.getElementById("table").rows[5].cells[0].onmouseover = function() {
+  document.getElementById('info').innerHTML ='Location: ' + bd.store + " <br/> Minimum Customers: " + bd.minCustomers + '    Maximum Customers: ' + bd.maxCustomers + '    Avarage Donuts/hour: ' + bd.aveDonuts;
+}
+// hide Ballard
+var bdInfo = document.getElementById("table").rows[5].cells[0].onmouseout = function() {
+  document.getElementById('info').innerHTML ='';
+}
+
+cheet('d o w n t o w n', function () {
+  alert('Address: 720 3rd Ave Suite 100                          Phone: (206) 454-3694');
+});
+
+cheet('c a p i t o l h i l l', function () {
+  alert('Address: 1206 Madison St                                Phone: (206) 708-7244');
+});
+
+cheet('s o u t h l a k e u n i o n', function () {
+  alert('Address: 590 Terry Ave N                                Phone: (206) 995-8296');
+});
+
+cheet('w e d g w o o d', function () {
+  alert('Address: 6855 35th Ave NE                               Phone: (206) 525-1966');
+});
+
+cheet('b a l l a r d', function () {
+  alert('Address: 1416 NW 46th St #102                           Phone: (206) 454-3767');
+});
 
 
