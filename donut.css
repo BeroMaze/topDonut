@@ -29,6 +29,16 @@ header {
     max-width: 1120px;
 }
 
+#charts {
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    -webkit-justify-content: center;
+}
+
+canvas {
+  margin-right: 30px;
+}
+
 #headerLeft {
     display: -webkit-flex;
     -webkit-flex-direction: column;

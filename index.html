@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
-  <script type="text/javascript" src = 'cheet.js'></script>
+  <script type="text/javascript" src ='cheet.js'></script>
 </head>
 
 <body>
@@ -55,7 +55,10 @@
 
                 <p1 id = 'tableDescription'>This table shows the amount of donuts that will be
                 bought per hour.</p1> <br /> <br />
-
+            <div id = 'charts'>
+            <canvas id="myChart" width="700" height="400"></canvas>
+            <canvas id="myChart2" width="200" height="200"></canvas> <br/>
+            </div>
                 <p2 class = 'infoEntry'> Please Enter A New Stores Info Here:</p2> <br />
                 <input type="text" placeholder="New Store Name" id="newStore">
                 <input type="text" placeholder="Store Min Customers" id="newMin">
@@ -72,7 +75,6 @@
                 <input type="text" placeholder="Store Max Customers" id="updateMax">
                 <input type="text" placeholder="Store Average Donuts" id="updateAve">
                 <button id = 'updateSubmit'>Update Store</button><br/>
-                <script src ="donut.js"></script>
         </article>
 
         <aside id ='asideRight'>
@@ -93,5 +95,7 @@
         <footer>
             Thank you to Top Pot Donuts for Making Great Donuts
         </footer>
+        <script src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js'></script>
+        <script src ="donut.js"></script>
 </body>
 </html>
