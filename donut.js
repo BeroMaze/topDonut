@@ -244,11 +244,11 @@ cheet('d o w n t o w n', function () {
 });
 
 cheet('c a p i t o l h i l l', function () {
-  alert('Address: 1206 Madison St                                Phone: (206) 708-7244');
+  alert('Address: 1206 Madison St                                        Phone: (206) 708-7244');
 });
 
 cheet('s o u t h l a k e u n i o n', function () {
-  alert('Address: 590 Terry Ave N                                Phone: (206) 995-8296');
+  alert('Address: 590 Terry Ave N                                        Phone: (206) 995-8296');
 });
 
 cheet('w e d g w o o d', function () {
