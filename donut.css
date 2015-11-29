@@ -60,6 +60,7 @@ header {
     /*border: solid;*/
 
 }
+
 /*#asideLeft {
   border: solid;
   width: 80px;
@@ -153,7 +154,11 @@ td, tr, th {
   width: 200px;
   text-align: left;
   position: relative;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
+  font-family: 'Gloria Hallelujah', cursive;
+  color: rgba(200, 20, 20, .5);
+  font-size: .95em;
+
 }
 
 
@@ -177,4 +182,14 @@ button {
 
 p2 {
   font-size: 1.3em;
+}
+
+#blackout {
+  width: 1000px;
+  height: 300px;
+  background-color: red;
+  position: relative;
+  z-index: 1;
+  top: 655px;
+  left: 10px;
 }

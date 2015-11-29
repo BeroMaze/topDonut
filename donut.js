@@ -58,6 +58,7 @@ var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
               totalDonutsTable.setAttribute("id", "donutStyle");
   }
 };
+
 ////////// updates location with new info ///////////////////////////
 DonutStatus.prototype.tableUpdate = function(i) {
   console.log(i);
@@ -106,6 +107,7 @@ document.getElementById('newSubmit').addEventListener('click', function () {
           }
           newresults.allDayDonuts();
           newresults.table();
+
           donutShops.push(newresults);
           var loc = document.getElementById('updateStore');
           var opt = newresults.store;
@@ -151,7 +153,6 @@ document.getElementById('updateSubmit').addEventListener('click', function (i) {
                   }};
               }
           });
-
 
 ///////////////////////// all new locations //////////////////////////////
 var dt = new DonutStatus('Downtown', 8, 43, 4.50);
@@ -243,11 +244,11 @@ cheet('d o w n t o w n', function () {
 });
 
 cheet('c a p i t o l h i l l', function () {
-  alert('Address: 1206 Madison St                                Phone: (206) 708-7244');
+  alert('Address: 1206 Madison St                                        Phone: (206) 708-7244');
 });
 
 cheet('s o u t h l a k e u n i o n', function () {
-  alert('Address: 590 Terry Ave N                                Phone: (206) 995-8296');
+  alert('Address: 590 Terry Ave N                                        Phone: (206) 995-8296');
 });
 
 cheet('w e d g w o o d', function () {
@@ -257,5 +258,12 @@ cheet('w e d g w o o d', function () {
 cheet('b a l l a r d', function () {
   alert('Address: 1416 NW 46th St #102                           Phone: (206) 454-3767');
 });
+
+// cheet('b l a c k o u t', function(){
+//   document.getElementById('blackout').display = 'visible';
+// })
+// cheet('n o', function(){
+//   document.getElementById('blackout').display = 'hidden';
+// })
 
 
