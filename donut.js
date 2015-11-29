@@ -95,7 +95,7 @@ DonutStatus.prototype.tableUpdate = function(i) {
 
 //////////// add a new store to the table ///////////////////////
           document.getElementById('newSubmit').addEventListener('click', function (event) {
-          console.log(event.target.newStore.value);
+          console.log(event.target);
           var newStore = event.target.newStore.value;
           var newMin = event.target.newMin.value;
           var newMax = event.target.newMax.value;
