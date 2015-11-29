@@ -34,6 +34,16 @@ Columns Magazine - http://www.washington.edu/alumni/columns/dec14/images/toppot.
 
 Hidden events:
 Cheet.js - https://namuol.github.io/cheet.js/
+
+side pictures:
+-http://s3-media2.fl.yelpcdn.com/bphoto/xJBxZcvDnJY5DvvV5TsVxQ/ls.jpg
+-http://assets3.thrillist.com/v1/image/1021869/size/tl-horizontal_main/top-pot-doughnuts
+-http://www.toppotdoughnuts.com/_source/img/map3.jpg
+-http://img1.10bestmedia.com/Images/Photos/216230/top-pot_54_990x660_201406010024.jpg
+-http://assets3.thrillist.com/v1/image/1403924/size/tl-horizontal_main/the-6-best-
+donut-shops-in-seattle
+-http://allaroundtim.com/wp-content/uploads/2012/11/top-pot-doughnuts-coffee.jpg
+-http://www.toppotdoughnuts.com/_source/img/slides/png/004.png" class = 'donutPic
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 
 ___________________

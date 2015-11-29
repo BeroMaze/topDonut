@@ -9,6 +9,19 @@ body {
     margin: 0 auto;
     vertical-align: center;
 }
+.rollin {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    /*border: solid;*/
+    width: 50%;
+    margin: 0 20px;
+    -moz-transition:4s all ease;
+    -webkit-transition:4s all ease;
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    }
 
 section {
     display: -webkit-flex;
@@ -100,6 +113,7 @@ footer {
     border-right: solid white;
     color: white;
     max-width: 1114px;
+
 }
 
 #tableHead {
@@ -194,12 +208,32 @@ p2 {
   font-size: 1.3em;
 }
 
-#blackout {
+/*.visible {
   width: 1000px;
   height: 300px;
-  background-color: red;
+  background-color: rgb(160, 190, 200);
   position: relative;
   z-index: 1;
-  top: 655px;
+  top: -965px;
+  left: 10px;
+}*/
+
+.hidden {
+  width: 1000px;
+  height: 0px;
+  background-color: rgb(160, 190, 200);
+  position: relative;
+  z-index: -2;
+  top: -965px;
   left: 10px;
 }
+.visible {
+  width: 1100px;
+  height: 870px;
+  background-color: rgb(160, 190, 200);
+  position: relative;
+  z-index: 1;
+  top: -965px;
+  left: 10px;
+}
+

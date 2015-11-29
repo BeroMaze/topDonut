@@ -11,18 +11,17 @@
 </head>
 
 <body>
-<!-- <div id = 'blackout'></div> -->
     <header>
-        <aside = id ="headerLeft">
+        <aside = id ="headerLeft" class =''>
         <p = id ='info'></p>
             <img src="https://pbs.twimg.com/profile_images/437618776452759552/MnADNZ8h.jpeg" id = 'topImgLeft' width="150px" height = "150px">
         </aside>
-        <aside = id = "headerMidle">
+        <aside = id = "headerMidle" class =''>
             <img src="http://www.washington.edu/alumni/columns/dec14/images/toppot.jpg" id = 'topImgMid' width="350px" height="180px">
             <h1 id = 'tableHead'>Top Pot Donuts Table</h1>
         </aside>
 
-        <aside id = 'headerRight'>
+        <aside id = 'headerRight' class =''>
             <img src="https://pbs.twimg.com/profile_images/437618776452759552/MnADNZ8h.jpeg" id = 'topImgRight' width="150px" height = "150px">
         </aside>
     </header>
@@ -59,6 +58,8 @@
             <canvas id="myChart" width="700" height="400"></canvas>
             <canvas id="myChart2" width="200" height="200"></canvas> <br/>
             </div>
+            </div> <br />
+
                 <p2 class = 'infoEntry'> Please Enter A New Stores Info Here:</p2> <br />
                 <input type="text" placeholder="New Store Name" id="newStore">
                 <input type="text" placeholder="Store Min Customers" id="newMin">
@@ -78,16 +79,28 @@
         </article>
 
         <aside id ='asideRight'>
+                <br/>
                 <img src="http://s3-media2.fl.yelpcdn.com/bphoto/xJBxZcvDnJY5DvvV5TsVxQ/ls.jpg" class = 'donutPic' height="100px">
                 <br/>
                 <br/>
                 <img src="http://assets3.thrillist.com/v1/image/1021869/size/tl-horizontal_main/top-pot-doughnuts" class = 'donutPic' height="100px">
                 <br/>
                 <br/>
+                <img src="http://www.toppotdoughnuts.com/_source/img/map3.jpg" height="100px" class = 'donutPic'>
+                <br/>
+                <br/>
                 <img src="http://img1.10bestmedia.com/Images/Photos/216230/top-pot_54_990x660_201406010024.jpg" height="100px" class = 'donutPic'>
                 <br/>
                 <br/>
                 <img src="http://assets3.thrillist.com/v1/image/1403924/size/tl-horizontal_main/the-6-best-donut-shops-in-seattle" class = 'donutPic' height="100px">
+                <br/>
+                <br/>
+                <img src="http://allaroundtim.com/wp-content/uploads/2012/11/top-pot-doughnuts-coffee.jpg" height="100px" class = 'donutPic'>
+                <br/>
+                <br/>
+                <img src="http://www.toppotdoughnuts.com/_source/img/slides/png/004.png" class = 'donutPic' height="100px">
+                <br/>
+                <br/>
         </aside>
 
     </section>
@@ -95,6 +108,7 @@
         <footer>
             Thank you to Top Pot Donuts for Making Great Donuts
         </footer>
+        <div class ='hidden' id = 'blackout'></div>
         <script src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js'></script>
         <script src ="donut.js"></script>
 </body>

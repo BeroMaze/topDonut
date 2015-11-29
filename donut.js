@@ -258,6 +258,10 @@ cheet('b a l l a r d', function () {
   alert('Address: 1416 NW 46th St #102                           Phone: (206) 454-3767');
 });
 
+cheet('↑ ↑ ↓ ↓ ← → ← →', function(){
+  alert('Hello');
+});
+
 var ctx = document.getElementById("myChart").getContext("2d");
 var data = {
     labels: ['7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00am', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm'],
@@ -266,10 +270,10 @@ var data = {
             label: "Downtown",
             fillColor: "rgba(220,220,220,0.2)",
             strokeColor: "rgba(220,0,0,1)",
-            pointColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,0,0,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
+            pointHighlightStroke: "rgba(220,0,0,1)",
             data: dt.donutsArray,
 
         },
@@ -277,10 +281,10 @@ var data = {
             label: "Capitol Hill",
             fillColor: "rgba(151,187,205,0.2)",
             strokeColor: "rgba(0,200,0,1)",
-            pointColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(0,200,0,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
+            pointHighlightStroke: "rgba(0,200,0,1)",
             data: ch.donutsArray,
 
         },
@@ -288,10 +292,10 @@ var data = {
             label: "South Lake Union",
             fillColor: "rgba(151,187,205,0.2)",
             strokeColor: "rgba(0,0,205,1)",
-            pointColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(0,0,205,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
+            pointHighlightStroke: "rgba(0,0,205,1)",
             data: slu.donutsArray,
 
 
@@ -300,10 +304,10 @@ var data = {
             label: "Wedgwood",
             fillColor: "rgba(151,187,205,0.2)",
             strokeColor: "rgba(151,187,0,1)",
-            pointColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,0,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
+            pointHighlightStroke: "rgba(151,187,0,1)",
             data: ww.donutsArray,
 
 
@@ -312,10 +316,10 @@ var data = {
             label: "Ballard",
             fillColor: "rgba(151,187,205,0.2)",
             strokeColor: "rgba(151,0,205,1)",
-            pointColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,0,205,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(151,187,205,1)",
+            pointHighlightStroke: "rgba(151,0,205,1)",
             data: bd.donutsArray,
 
 
@@ -324,7 +328,7 @@ var data = {
 };
 option = {
   multiTooltipTemplate: function(info){
-      console.log(info);
+      console.log(data);
     //  var totalChart = data.datasets.map(function(y){
     //         return y
     //  }).map(function(j){
@@ -382,11 +386,16 @@ var data2 = [
 ]
 var myPieChart = new Chart(ctx2).Pie(data2);
 
-// cheet('b l a c k o u t', function(){
-//   document.getElementById('blackout').display = 'visible';
-// })
-// cheet('n o', function(){
-//   document.getElementById('blackout').display = 'hidden';
-// })
+cheet('b l a c k o u t', function(){
+  document.getElementById('blackout').className = 'visible';
+});
+cheet('n o', function(){
+  document.getElementById('blackout').className = 'hidden';
+});
+
+cheet('r o l l i n', function(){
+  document.getElementById('headerMidle').className = 'rollin';
+});
+
 
 
