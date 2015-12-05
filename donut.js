@@ -1,4 +1,8 @@
 /////////////////////////// Object for Donut Stores ////////////////////////////////
+var localData = localStorage.getItem('donutShopsLocal');
+var donutShopsLocal = JSON.parse(localData);
+console.log(donutShopsLocal);
+
 var DonutStatus = function(store, minCustomers, maxCustomers, aveDonuts) {
           this.store = store; //////// location
           this.minCustomers = minCustomers; /////// min customer ave
@@ -118,6 +122,8 @@ document.getElementById('newSubmit').addEventListener('click', function () {
           console.log(newresults.totalCustomers);
           console.log(newresults.customerArray);
           console.log(donutShops);
+          var localDonutArray = JSON.stringify(donutShops);
+          localStorage.setItem('donutShopsLocal', localDonutArray);
 });
 
 /////////////// update a location with new numbers //////////////////////////
@@ -160,9 +166,8 @@ var slu = new DonutStatus('South Lake Union', 9, 23, 6.33);
 var ww = new DonutStatus('Wedgewood', 2, 28, 1.25);
 var bd = new DonutStatus('Ballard', 8, 58, 3.75);
 
-var donutShops = [dt, ch, slu, ww, bd]
+var donutShops = [dt, ch, slu, ww, bd];
 // console.log(dt);
-
 
 ////////////////////// add each object to the dropdown box ///////////////////////
 function update () {
@@ -173,9 +178,15 @@ function update () {
       el.textContent = opt;
       el.value = opt;
       loc.appendChild(el);
+
   }};
 update();
 
+// donutShopsLocal.forEach(function(shops){
+//   // shops.allDayDonuts();
+//   console.log(shops);
+//   shops.table();
+// });
 // ///////////////////////// Downtowns resaultslts ////////////////////////////
 dt.allDayDonuts(); ////// run function for Downtown
 dt.table(); ///// run push into table
@@ -237,6 +248,9 @@ var bdInfo = document.getElementById("table").rows[5].cells[0].onmouseover = fun
 var bdInfo = document.getElementById("table").rows[5].cells[0].onmouseout = function() {
   document.getElementById('info').innerHTML ='';
 }
+
+var localDonutArray = JSON.stringify(donutShops);
+localStorage.setItem('donutShopsLocal', localDonutArray);
 
 cheet('d o w n t o w n', function () {
   alert('Address: 720 3rd Ave Suite 100                          Phone: (206) 454-3694');
