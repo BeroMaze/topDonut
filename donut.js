@@ -94,12 +94,13 @@ DonutStatus.prototype.tableUpdate = function(i) {
               totalDonutsTable.setAttribute("id", "donutStyle");
   }
 
-//////////// add a new store to the table ////////////////////////
-document.getElementById('newSubmit').addEventListener('click', function () {
-          var newStore = document.getElementById('newStore').value;
-          var newMin = document.getElementById('newMin').value;
-          var newMax = document.getElementById('newMax').value;
-          var newAve = document.getElementById('newAve').value;
+//////////// add a new store to the table ///////////////////////
+          document.getElementById('newSubmit').addEventListener('click', function (event) {
+          console.log(event.target);
+          var newStore = event.target.newStore.value;
+          var newMin = event.target.newMin.value;
+          var newMax = event.target.newMax.value;
+          var newAve = event.target.newAve.value;
           var newresults = new DonutStatus(newStore, parseInt(newMin), parseInt(newMax), parseInt(newAve));
           if ((newStore === '') || (newMin === '') || (newMax === '') || (newAve === '')){
             alert('Please fill in all information needed.')
